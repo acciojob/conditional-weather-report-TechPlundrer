@@ -1,12 +1,17 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './../styles/App.css';
 
 const App = () => {
   const [weather, setWeather] = useState({
-    temperature: 25,
-    conditions: "Sunny",
+    temperature: 0,
+    conditions: "",
   });
+
+  useEffect(() => {
+    setWeather({ temperature: 25, conditions: "Sunny"});
+  }, []);
+  
   return (
     <div>
       
@@ -15,18 +20,5 @@ const App = () => {
     </div>
   )
 }
-function weatherDisplay({ weather }) {
-  const {temperature, conditions } = weather;
 
-  const tempColor = temperature > 20 ? "red" : "blue";
-
-  return (
-      <div>
-          <p>
-              Temperature: <span style= {{color: tempColor}}>{temperature}</span>
-          </p>
-          <p>Conditions: {conditions}</p>
-      </div>
-  );
-}
 export default App
