@@ -1,23 +1,20 @@
-
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import './../styles/App.css';
-import weatherDisplay from "./WeatherDisplay";
+import WeatherDisplay from "./WeatherDisplay";
 
 const App = () => {
   const [weatherData, setWeatherData] = useState({
     temperature: 0,
-    conditions: "",
+    conditions: ""
   });
 
   useEffect(() => {
-    setWeatherData({ temperature: 25, conditions: "Sunny"});
+    setWeatherData({ temperature: 25, conditions: "Sunny" });
   }, []);
 
   return (
     <div>
-      
-        {/* Do not remove the main div */}
-        <weatherDisplay weatherData={weatherData} />
+      <WeatherDisplay weatherData={weatherData} />
     </div>
   );
 };
